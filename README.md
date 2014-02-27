@@ -7,10 +7,10 @@ Ooompa Loompa is a simple web service that listens to POST hooks from Bitbucket 
     {"projects": [
       {
         "name": "example",
-        "path": "/var/www/www.example.com/public_html",
+        "path": "/var/www/www.example.com/public_html"
       },
       {
         "name": "exshmample",
-        "path": "/var/www/www.exshmample.io/public_html",
+        "path": "/var/www/www.exshmample.io/public_html"
       }
     ]}
