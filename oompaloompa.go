@@ -39,8 +39,8 @@ var configuration = &Configuration{}
 var port = flag.Int("port", 3000, "listen on port")
 
 func main() {
-	log.Println("Oompa Loompa warming up...")
 	flag.Parse()
+	log.Println("Oompa Loompa warming up...")
 	file, _ := os.Open("conf.json")
 	decoder := json.NewDecoder(file)
 	decoder.Decode(&configuration)
@@ -75,6 +75,7 @@ func deploy(w http.ResponseWriter, r *http.Request) {
 		decoder.Decode(&payload)
 
 		index := projectIndex(payload.Repository.Name, configuration.Projects)
+
 		if index < 0 {
 			log.Println("Invalid payload.")
 			return
