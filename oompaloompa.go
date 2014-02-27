@@ -41,6 +41,7 @@ var port = flag.Int("port", 3000, "listen on port")
 func main() {
 	flag.Parse()
 	log.Println("Oompa Loompa warming up...")
+	// TODO: We should throw an error if the JSON is bad.
 	file, _ := os.Open("conf.json")
 	decoder := json.NewDecoder(file)
 	decoder.Decode(&configuration)
