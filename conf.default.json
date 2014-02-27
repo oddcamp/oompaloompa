@@ -1,6 +1,6 @@
 {"projects": [
   {
     "name": "myproject",
-    "path": "/var/www/www.myproject.com/public_html",
+    "path": "/var/www/www.myproject.com/public_html"
   }
 ]}
