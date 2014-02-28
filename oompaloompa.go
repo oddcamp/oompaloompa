@@ -36,15 +36,20 @@ type Payload struct {
 }
 
 var configuration = &Configuration{}
-var port = flag.Int("port", 3000, "listen on port")
+var port = flag.Int("port", 4000, "listen on port")
+var configFile = flag.String("config", "conf.json", "config file to load")
 
 func main() {
 	flag.Parse()
 	log.Println("Oompa Loompa warming up...")
-	// TODO: We should throw an error if the JSON is bad.
-	file, _ := os.Open("conf.json")
+
+	log.Println("Loading config file: " + *configFile)
+	file, _ := os.Open(*configFile)
 	decoder := json.NewDecoder(file)
-	decoder.Decode(&configuration)
+	err := decoder.Decode(&configuration)
+	if err != nil {
+		log.Fatal("JSON invalid!")
+	}
 
 	http.Handle("/deploy", logHandlerFunc(deploy))
 	http.Handle("/", logHandlerFunc(home))
