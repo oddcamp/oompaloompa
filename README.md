@@ -28,6 +28,6 @@ Ooompa Loompa is a simple web service that listens to POST hooks from Bitbucket 
 
 Now set up a new webhook for your GitHub or Bitbucket repo to fire at your Ooompa Loompa host, e.g.
 
-![](http://i.imgur.com/AQHr8oN.png)
+![](http://i.imgur.com/sq5cN70.png)
 
 That's it!
