@@ -38,9 +38,20 @@ type Payload struct {
 var configuration = &Configuration{}
 var port = flag.Int("port", 4000, "listen on port")
 var configFile = flag.String("config", "conf.json", "config file to load")
+var logFile = flag.String("logfile", "", "log to file")
 
 func main() {
 	flag.Parse()
+
+	if *logFile != "" {
+		f, err := os.OpenFile(*logFile, os.O_RDWR|os.O_CREATE|os.O_APPEND, 0666)
+		if err != nil {
+			log.Fatalf("Error opening log file: %v", err)
+		}
+		defer f.Close()
+		log.SetOutput(f)
+	}
+
 	log.Println("Oompa Loompa warming up...")
 
 	log.Println("Loading config file: " + *configFile)
