@@ -4,6 +4,15 @@
 
 Ooompa Loompa is a simple web service that listens to POST hooks from Bitbucket or GitHub. We use it for fully automatic deployment of static HTML sites.
 
+## Usage
+
+    $ oompaloompa --help
+    Usage of oompaloompa:
+      -config="conf.json": config file to load
+      -logfile="": log to file
+      -port=4000: listen on port
+
+
 **config.json** contains a list of each project with the repo name and the path. When a payload is received for a given project Oompa Loompa will run a `git pull` in that directory.
 
     {"projects": [
@@ -16,3 +25,9 @@ Ooompa Loompa is a simple web service that listens to POST hooks from Bitbucket 
         "path": "/var/www/www.exshmample.io/public_html"
       }
     ]}
+
+Now set up a new webhook for your GitHub or Bitbucket repo to fire at your Ooompa Loompa host, e.g.
+
+![](http://i.imgur.com/AQHr8oN.png)
+
+That's it!
